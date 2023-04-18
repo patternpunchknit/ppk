@@ -14,3 +14,6 @@ htdocs/index.php
 htdocs/css/styles.css
 
 htdocs/db/database.db
+
+node_modules/
+pnpm-lock.yaml
