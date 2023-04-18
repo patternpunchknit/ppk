@@ -1,0 +1,287 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  [x-cloak] {
+    display: none !important;
+  }
+
+  .design {
+    @apply overflow-hidden leading-snug bg-gray-100 hover:bg-gray-200;
+  }
+
+  .design a {
+    @apply text-xs text-blue-600;
+  }
+
+  .debug {
+    @apply border-2 border-red-500;
+  }
+
+  a.external:after {
+    margin: 0 3px 0 5px;
+    content: "";
+    -webkit-mask: url(svg/external.svg);
+    mask: url(svg/external.svg);
+    display: inline-block;
+    background-color: #333;
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  kbd {
+    background-color: #eee;
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+      0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+    color: #333;
+    display: inline-block;
+    font-size: 0.85em;
+    font-weight: 700;
+    line-height: 1;
+    padding: 4px 6px;
+    white-space: nowrap;
+  }
+}
+
+@layer components {
+  /* https://lil-gui.georgealways.com/examples/kitchen-sink/ */
+  .lil-gui {
+    /* width: 100px; */
+    --width: 200px;
+    --background-color: #dfdfdf;
+    --font-family: "PT Sans";
+    --text-color: #3d3d3d;
+    --title-background-color: #dfdfdf;
+    --title-text-color: #3d3d3d;
+    --widget-color: #eaeaea;
+    --hover-color: #f0f0f0;
+    --focus-color: #fafafa;
+    --number-color: #07aacf;
+    --string-color: #000000;
+    --font-size: 14px;
+    --input-font-size: 13px;
+    --padding: 6px;
+    --spacing: 8px;
+    --widget-height: 18px;
+    --color-input-min-width: 60px;
+  }
+
+  .debug {
+    @apply border-2 border-red-500;
+  }
+
+  #lilgui > * {
+    @apply mt-8;
+  }
+
+  /* BUTTONS */
+
+  .button {
+    @apply inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out;
+  }
+  .button:disabled {
+    @apply bg-gray-400 cursor-not-allowed;
+  }
+
+  /* -------- CLOSEME -------- */
+
+  .closeme {
+    @apply absolute p-1 bg-black rounded-full bg-opacity-10 hover:bg-opacity-20 right-2 top-2;
+  }
+
+  .our-round-button {
+    @apply flex items-center justify-center w-12 h-12 text-gray-800 bg-gray-200 border rounded-full shadow-lg hover:scale-105;
+  }
+
+  /* -------- OURTABS -------- */
+
+  .ourtabs {
+    @apply inline-flex flex-row justify-center gap-4 text-sm border-gray-200 dark:text-gray-800;
+  }
+
+  .ourtabs button {
+    @apply flex items-center justify-center px-4 py-2 text-gray-800 bg-gray-200 border shadow-lg rounded-xl hover:scale-105;
+    /* inline-block border-b-2 border-transparent rounded-t-lg hover:text-black hover:border-black; */
+  }
+  .ourtabs button.activetab {
+    @apply text-black bg-gray-300 border-gray-400;
+  }
+
+  .message {
+    line-height: 20px;
+    @apply flex flex-col p-2 italic text-gray-600 gap-y-6;
+  }
+
+  .gui-element {
+    @apply p-1 bg-gray-100 border shadow-md font-gui;
+  }
+
+  .clip-bottom {
+    clip-path: polygon(100% 50%, 0 0, 100% 0, 50% 100%, 0 0);
+  }
+  .ourbutton {
+    @apply flex flex-row items-center justify-between h-16 overflow-visible text-black no-underline transform border rounded-lg shadow-md cursor-pointer select-none font-fun hover:bg-gray-100;
+    animation: button-pop 0.5s ease-out;
+  }
+
+  .ourbutton-rightside {
+    @apply flex flex-row items-center justify-center flex-grow-0 flex-shrink-0 w-12 h-full bg-gray-200 border-0 rounded-r-lg group-hover:bg-gray-300 group-active:bg-green-400;
+  }
+
+  .ourbutton:active {
+    transform: scale(0.98);
+    animation: 1.5s ease;
+  }
+
+  .ourtooltip {
+    @apply absolute w-20 px-3 py-2 mb-2 text-xs text-center text-white transition-opacity duration-200 ease-in-out transform bg-black rounded-lg opacity-0 bottom-full;
+  }
+
+  @keyframes button-pop {
+    0% {
+      transform: scale(0.98);
+    }
+    40% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .icon-facebook {
+    color: #3b5998;
+  }
+  .icon-twitter {
+    color: #00aced;
+  }
+  .icon-youtube {
+    color: #bb0000;
+  }
+  .icon-linkedin {
+    color: #007bb6;
+  }
+  .icon-instagram {
+    color: #517fa4;
+  }
+}
+
+/* raleway-400 - latin */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/raleway-v28-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("fonts/raleway-v28-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("fonts/raleway-v28-latin-regular.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("fonts/raleway-v28-latin-regular.woff")
+      format("woff"),
+    /* Modern Browsers */ url("fonts/raleway-v28-latin-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("fonts/raleway-v28-latin-regular.svg#Raleway") format("svg"); /* Legacy iOS */
+}
+
+/* raleway-700 - latin */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  src: url("fonts/raleway-v28-latin-700.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("fonts/raleway-v28-latin-700.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("fonts/raleway-v28-latin-700.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("fonts/raleway-v28-latin-700.woff")
+      format("woff"),
+    /* Modern Browsers */ url("fonts/raleway-v28-latin-700.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */ url("fonts/raleway-v28-latin-700.svg#Raleway")
+      format("svg"); /* Legacy iOS */
+}
+
+/* raleway-800 - latin */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 800;
+  src: url("fonts/raleway-v28-latin-800.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("fonts/raleway-v28-latin-800.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("fonts/raleway-v28-latin-800.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("fonts/raleway-v28-latin-800.woff")
+      format("woff"),
+    /* Modern Browsers */ url("fonts/raleway-v28-latin-800.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */ url("fonts/raleway-v28-latin-800.svg#Raleway")
+      format("svg"); /* Legacy iOS */
+}
+
+/* raleway-900 - latin */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 900;
+  src: url("fonts/raleway-v28-latin-900.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("fonts/raleway-v28-latin-900.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("fonts/raleway-v28-latin-900.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("fonts/raleway-v28-latin-900.woff")
+      format("woff"),
+    /* Modern Browsers */ url("fonts/raleway-v28-latin-900.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */ url("fonts/raleway-v28-latin-900.svg#Raleway")
+      format("svg"); /* Legacy iOS */
+}
+
+/* inconsolata-regular - latin */
+@font-face {
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/inconsolata-v31-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("fonts/inconsolata-v31-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("fonts/inconsolata-v31-latin-regular.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */ url("fonts/inconsolata-v31-latin-regular.woff")
+      format("woff"),
+    /* Modern Browsers */ url("fonts/inconsolata-v31-latin-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("fonts/inconsolata-v31-latin-regular.svg#Inconsolata") format("svg"); /* Legacy iOS */
+}
+
+/* inconsolata-600 - latin */
+@font-face {
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 600;
+  src: url("fonts/inconsolata-v31-latin-600.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("fonts/inconsolata-v31-latin-600.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("fonts/inconsolata-v31-latin-600.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("fonts/inconsolata-v31-latin-600.woff")
+      format("woff"),
+    /* Modern Browsers */ url("fonts/inconsolata-v31-latin-600.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("fonts/inconsolata-v31-latin-600.svg#Inconsolata") format("svg"); /* Legacy iOS */
+}

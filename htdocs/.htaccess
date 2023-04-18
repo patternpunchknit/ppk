@@ -1,0 +1,25 @@
+Options -Indexes
+
+# php_flag display_errors on
+
+RewriteEngine on
+
+# Continue only if the requested file or directory does not exist.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Check if filename has six characters. If so, it's a short URL. Rewrite to index.php.
+RewriteCond %{REQUEST_URI} ^/([a-zA-Z0-9]{6})$ [NC]
+RewriteRule ^([a-zA-Z0-9]{6})$ /index.php?$1 [NC,L,QSA]
+
+# Allow access to the following files.
+RewriteRule ^callback$ /index.php?$1 [NC,L,QSA]
+
+# Prevent direct access to databases.
+RewriteRule ^db/database.db$ - [F]
+
+# Error pages.
+ErrorDocument 404 /error.php
+ErrorDocument 403 /error.php
+
+

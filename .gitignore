@@ -1,0 +1,16 @@
+
+resources/
+
+htdocs/js/alpine.js
+htdocs/js/app.js
+htdocs/js/clipboard.js
+htdocs/js/lilgui.js
+htdocs/js/p5.js
+
+htdocs/dbimg/
+
+htdocs/index.php
+
+htdocs/css/styles.css
+
+htdocs/db/database.db
