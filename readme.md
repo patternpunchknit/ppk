@@ -16,5 +16,5 @@ Instructions to build
 
 `pnpm run build`
 
-`pnpm run open`
+`pnpm run server`
 
