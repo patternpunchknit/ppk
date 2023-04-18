@@ -6,12 +6,15 @@ Instructions to build
 
 2. Use brew to install node and pnpm. https://formulae.brew.sh/formula/node
 
-> brew install node
-> brew install pnpm
+`brew install node`
+
+`brew install pnpm`
 
 3. Build the project.
 
-> pnpm install
-> pnpm run build
-> pnpm run open
+`pnpm install`
+
+`pnpm run build`
+
+`pnpm run open`
 
