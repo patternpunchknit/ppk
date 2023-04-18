@@ -1,7 +1,7 @@
 {
   "name": "patternpunchknit",
   "description": "Pattern Punch Knit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Roger Antonsen and Laura Taalman",
   "private": true,
   "scripts": {
