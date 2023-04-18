@@ -29,7 +29,7 @@
     "php:listen:index": "onchange 'source/index.php' -- npm run php:build:index",
     "update:message": "echo -------------------------------- update --------------------------------",
     "update": "npm-run-all update:* copy:*",
-    "update:npm": "npm -g update",
+    "update:npm": "pnpm -g update",
     "update:ncu": "ncu -u"
   },
   "devDependencies": {
