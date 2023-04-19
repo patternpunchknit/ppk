@@ -61,6 +61,11 @@ $rows = array_slice($rows, $page * $per_page, $per_page);
       <meta name="msapplication-config" content="favicon/browserconfig.xml">
       <meta name="theme-color" content="#ffffff">
 
+      <?php if ($superpowers) : ?>
+            <script defer src="js/alpine.js"></script>
+            <script defer src="db/superpowers.js"></script>
+      <?php endif; ?>
+
       <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
 
