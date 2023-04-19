@@ -71,7 +71,6 @@ if (preg_match('/^\/[a-zA-Z0-9]{6}/', $str)) {
   <meta name="theme-color" content="#ffffff">
 
   <!-- JS -->
-  <script defer src="js/index.js"></script>
   <script defer src="js/p5.js"></script>
   <script defer src="js/alpine.js"></script>
   <script defer src="js/lilgui.js"></script>
