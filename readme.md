@@ -16,5 +16,11 @@ Instructions to build
 
 `pnpm run build`
 
+4. Create the database
+
+open `localhost:3005/createdatabase.php`
+
+5. Run
+
 `pnpm run server`
 
