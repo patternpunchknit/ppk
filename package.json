@@ -9,7 +9,7 @@
     "build": "NODE_ENV=production npm-run-all copy:* js:build:* css:build:* php:build:*",
     "dev": "NODE_ENV=development npm-run-all --parallel js:listen:* css:listen:* php:listen:* server",
     "php": "php -S localhost:3004 -t htdocs",
-    "open": "browser-sync start --no-notify --proxy 'localhost:3004' --browser 'Firefox Developer Edition' --port 3004 --files 'htdocs/*.js,htdocs/*.css,htdocs/*.php' ",
+    "open": "browser-sync start --no-notify --proxy 'localhost:3004' --browser 'Google' --port 3004 --files 'htdocs/*.js,htdocs/*.css,htdocs/*.php' ",
     "server": "npm-run-all --parallel php open",
     "copy:message": "echo -------------------------------- copy --------------------------------",
     "copy:alpine": "cp node_modules/alpinejs/dist/cdn.min.js htdocs/js/alpine.js",
