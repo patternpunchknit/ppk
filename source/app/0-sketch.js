@@ -114,7 +114,7 @@ async function init(withReset = true, urlString = location.href) {
     punch.wallpaperuptypes
   );
   punch.xshift = getIntFromParameters("x", 0);
-  punch.yshift = getIntFromParameters("y", 3);
+  punch.yshift = getIntFromParameters("y", 0); // Laura changed 3 to 0
 
   punch.wavestrictness = getStringFromParameters(
     "strictness",
