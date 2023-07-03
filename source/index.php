@@ -82,20 +82,20 @@ if (preg_match('/^\/[a-zA-Z0-9]{6}/', $str)) {
 </head>
 
 
-<body class="flex flex-col bg-gray-100 w-screen h-[var(--maxvh)] overflow-hidden" x-data="{ isInfoBoxOpen: !true, isSharingBoxOpen: !true, isMenuShowing: !true, isLoginBoxOpen: !true, tab: 'knit', isTooNarrow: window.innerWidth < 1280 }" x-on:resize.window="isTooNarrow = window.innerWidth < 1280" @keydown.escape="isInfoBoxOpen = false; isSharingBoxOpen = false, isLoginBoxOpen = false">
+<body class="flex flex-col bg-gray-100 w-screen h-[var(--maxvh)] overflow-hidden" x-data="{ isInfoBoxOpen: !true, isSharingBoxOpen: !true, isMenuShowing: !true, isLoginBoxOpen: !true, tab: 'knit', isTooNarrow: window.innerWidth < 1024 }" x-on:resize.window="isTooNarrow = window.innerWidth < 1024" @keydown.escape="isInfoBoxOpen = false; isSharingBoxOpen = false, isLoginBoxOpen = false">
 
   <!-- Top bar -->
-  <div class="flex overflow-visible relative flex-col gap-2 justify-between items-center p-4 h-32 md:flex-row md:p-8 n">
+  <div class="flex overflow-visible relative flex-col gap-2 justify-between items-center p-4 h-32 md:flex-row md:p-8">
 
     <!-- Title -->
     <div class="inline gap-6 items-end n">
-      <h1 class="text-4xl font-black text-gray-600 whitespace-nowrap md:text-4xl xl:text-6xl font-fun">
+      <h1 class="text-4xl font-black text-gray-600 whitespace-nowrap md:text-4xl lg:text-6xl font-fun">
         <a class="maintitle" href=".">Pattern Punch Knit</a>
       </h1>
     </div>
 
     <!-- Buttons -->
-    <div :class="{ '' : isTooNarrow }" class="flex overflow-visible flex-row gap-2 scale-75 md:transform-none xl:gap-4 n">
+    <div :class="{ '' : isTooNarrow }" class="flex overflow-visible flex-row gap-2 scale-75 md:transform-none lg:gap-4">
 
       <!-- feelingLucky -->
 
@@ -145,12 +145,12 @@ if (preg_match('/^\/[a-zA-Z0-9]{6}/', $str)) {
   </nav>
 
   <!-- Everything below top bar -->
-  <div class="flex overflow-hidden relative flex-row p-8 h-full sm:px-8 xl:gap-6">
+  <div class="flex overflow-hidden relative flex-row p-8 h-full sm:px-8 lg:gap-6">
 
     <!-- GUIs -->
-    <div x-cloak :class="isTooNarrow ? 'absolute' : 'relative'" x-show="!isTooNarrow || tab === 'menu' || isMenuShowing" class="overflow-y-auto z-20 no-scrollbar sm:ml-0 xl:relative">
+    <div x-cloak :class="isTooNarrow ? 'absolute' : 'relative'" x-show="!isTooNarrow || tab === 'menu' || isMenuShowing" class="overflow-y-auto z-20 flex-shrink-0 no-scrollbar sm:ml-0 lg:relative">
       <div class="">
-        <div class="hidden absolute left-0 -top-6 font-mono text-xs text-gray-400 xl:block">Menu</div>
+        <div class="hidden absolute left-0 -top-6 font-mono text-xs text-gray-400 lg:block">Menu</div>
         <div :class="isTooNarrow ? '' : ''" class="flex relative flex-col flex-shrink-0 gap-8 h-full">
           <div id="lilgui-top" class="border-black shadow-lg border-1 shadow-gray-700"></div>
           <div id="lilgui-pattern" class="border-black shadow-lg border-1 shadow-gray-700"></div>
@@ -161,16 +161,16 @@ if (preg_match('/^\/[a-zA-Z0-9]{6}/', $str)) {
     </div>
 
     <!-- Pattern -->
-    <div x-show="tab === 'pattern' " :class="{ 'flex flex-col': tab === 'pattern' || !isTooNarrow }" class="w-full xl:w-[270px] xl:min-h-[270px] flex-shrink-0 overflow-visible relative">
-      <div class="hidden absolute left-0 -top-6 font-mono text-xs text-gray-400 xl:block">Pattern <span id="patterninfo"></span></div>
+    <div x-show="tab === 'pattern' " :class="{ 'flex flex-col': tab === 'pattern' || !isTooNarrow }" class="w-full lg:max-w-[270px] lg:min-h-[270px] flex-shrink-0 overflow-visible relative">
+      <div class="hidden absolute left-0 -top-6 font-mono text-xs text-gray-400 lg:block">Pattern <span id="patterninfo"></span></div>
       <div class="flex overflow-hidden flex-grow justify-center">
         <div id="pattern" class="flex overflow-hidden flex-grow justify-center"></div>
       </div>
     </div>
 
     <!-- Punch -->
-    <div x-show="tab === 'punch' " :class="{ 'flex flex-col': tab === 'punch' || !isTooNarrow }" class="flex overflow-y-visible relative flex-shrink-0 justify-start items-center w-full xl:w-auto n">
-      <div class="hidden absolute left-0 -top-6 font-mono text-xs text-gray-400 xl:block">Punch <span id="punchinfo"></span></div>
+    <div x-show="tab === 'punch' " :class="{ 'flex flex-col': tab === 'punch' || !isTooNarrow }" class="flex overflow-y-visible relative flex-shrink-0 justify-start items-center w-full lg:w-auto n">
+      <div class="hidden absolute left-0 -top-6 font-mono text-xs text-gray-400 lg:block">Punch <span id="punchinfo"></span></div>
       <div class="overflow-y-auto no-scrollbar">
         <div class="scale-75 punchsize:transform-none relative w-[350px] h-[803.333px]">
           <img class="w-[350px] absolute top-0" src="svg/card.svg" alt="">
@@ -180,8 +180,8 @@ if (preg_match('/^\/[a-zA-Z0-9]{6}/', $str)) {
     </div>
 
     <!-- Knit -->
-    <div x-show="tab === 'knit' " :class="{ 'flex flex-col': tab === 'knit' || !isTooNarrow }" class="w-full xl:w-[270px] min-h-[270px] flex-shrink-0 relative flex-grow overflow-visible n">
-      <div class="hidden absolute left-0 -top-6 font-mono text-xs text-gray-400 xl:block">Knit <span id="knitinfo"></span></div>
+    <div x-show="tab === 'knit' " :class="{ 'flex flex-col': tab === 'knit' || !isTooNarrow }" class="w-full lg:w-[270px] min-h-[270px] relative flex-grow overflow-visible n">
+      <div class="hidden absolute left-0 -top-6 font-mono text-xs text-gray-400 lg:block">Knit <span id="knitinfo"></span></div>
       <div id="knit" class="overflow-hidden flex-grow"></div>
     </div>
 
@@ -282,10 +282,10 @@ if (preg_match('/^\/[a-zA-Z0-9]{6}/', $str)) {
             <div class="p-4 mb-4 w-full text-2xl font-extrabold text-center font-fun">Download or Share your Pattern</div>
 
             <!-- Row of to boxes -->
-            <div class="flex flex-col gap-8 justify-center w-full bg-white xl:flex-row items-top">
+            <div class="flex flex-col gap-8 justify-center w-full bg-white lg:flex-row items-top">
 
               <!-- Left side -->
-              <div class="flex flex-col justify-center items-center xl:w-1/2">
+              <div class="flex flex-col justify-center items-center lg:w-1/2">
                 <div class="">
                   This is an automatically generated 1024×768 image from your knit pattern. It is now in the <a target="_blank" class="external" href="/gallery.php">gallery</a>. You can download the file by clicking on the button below, and share your pattern in social media by using the links to the right.
                 </div>
@@ -300,7 +300,7 @@ if (preg_match('/^\/[a-zA-Z0-9]{6}/', $str)) {
               </div>
 
               <!-- Right side -->
-              <div class="flex flex-col gap-4 xl:w-1/2 justify-top">
+              <div class="flex flex-col gap-4 lg:w-1/2 justify-top">
 
                 <!-- Direct URL to your pattern -->
                 <div class="text-xl text-center">Short URL to your pattern</div>
