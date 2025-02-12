@@ -18,3 +18,4 @@ htdocs/db/database.db
 node_modules/
 pnpm-lock.yaml
 htdocs/db/log.txt
+/vendor
