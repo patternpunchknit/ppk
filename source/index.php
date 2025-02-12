@@ -1,6 +1,6 @@
 <?php
 
-ini_set('extension', 'gd2')
+ini_set('extension', 'gd2');
 
 // Get string.
 $str = $_SERVER['REQUEST_URI'];
