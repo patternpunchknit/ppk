@@ -15,21 +15,21 @@ if (preg_match('/^\/callback/', $str)) {
 $ogimage = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . "/" . "ppk-1200x630.png";
 
 // Check the string. Change $ogimage if there is a database hit.
-if (preg_match('/^\/[a-zA-Z0-9]{6}/', $str)) {
-  $shorturl = substr($str, 1, 6);
-  $db = new SQLite3('db/database.db');
-  $query = $db->query("SELECT * FROM urls WHERE shorturl = '$shorturl'");;
-  if ($row = $query->fetchArray()) {
-    $ogimage = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . "/dbimg/" . $row['time'] . ".png";
-  }
-} else if (preg_match('/^\/?/', $str)) {
-  $longurl = substr($str, 2);
-  $db = new SQLite3('db/database.db');
-  $query = $db->query("SELECT * FROM urls WHERE longurl = '$longurl'");;
-  if ($row = $query->fetchArray()) {
-    $ogimage = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . "/dbimg/" . $row['time'] . ".png";
-  }
-}
+//if (preg_match('/^\/[a-zA-Z0-9]{6}/', $str)) {
+//  $shorturl = substr($str, 1, 6);
+//  $db = new SQLite3('db/database.db');
+//  $query = $db->query("SELECT * FROM urls WHERE shorturl = '$shorturl'");;
+//  if ($row = $query->fetchArray()) {
+//    $ogimage = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . "/dbimg/" . $row['time'] . ".png";
+//  }
+//} else if (preg_match('/^\/?/', $str)) {
+//  $longurl = substr($str, 2);
+//  $db = new SQLite3('db/database.db');
+//  $query = $db->query("SELECT * FROM urls WHERE longurl = '$longurl'");;
+//  if ($row = $query->fetchArray()) {
+//    $ogimage = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . "/dbimg/" . $row['time'] . ".png";
+//  }
+//}
 ?>
 
 <!DOCTYPE html>
